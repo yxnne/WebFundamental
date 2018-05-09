@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Right Main Layout</title>
+	<link rel="stylesheet" href="./css/layout_div_clear_fix.css">
+</head>
+<body>
+	<!-- 清除浮动的实践 -->
+	<h1>撑不开的div</h1>
+	<p>container中没有高度的话，浮动的元素走了就走了，container的高度就没有了，是所谓撑不开,撑不开的话你看footer的黄色在顶上</p>
+	<div class="container">
+
+		<div class="left">
+
+		</div>
+		<div class="right">
+
+		</div>
+	</div>
+
+	<div class="footer"></div>
+
+	<hr>
+	<h1>撑开div，加上一个clear both的div</h1>
+	<p>这个div存在的目的就是要撑开父级元素，所以没有大小，只有clear 属性</p>
+	<div class="container">
+
+		<div class="left">
+
+		</div>
+		<div class="right">
+
+		</div>
+
+		<div class="div_clear"></div>
+	</div>
+
+	<div class="footer"></div>
+
+	<hr>
+	<h1>添加clearfix类</h1>
+	<p>实现原理是添加一个伪元素，这个伪元素就像上面的用语撑开container的div的作用是一样</p>
+
+	<code>
+		//伪元素的样式中，重要的是这几个属性
+		display: block;
+		content: '';
+		visibility: hidden;
+		clear: both;
+
+
+	</code>
+	<div class="container clearfix">
+
+		<div class="left">
+
+		</div>
+		<div class="right"></div>
+	</div>
+
+	<div class="footer"></div>
+
+</body>
+</html>
