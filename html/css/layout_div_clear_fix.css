@@ -25,6 +25,7 @@ hr{
 	clear: both;
 }
 
+/*after是一个伪类，表示紧跟在.clearfix的元素之后*/
 .clearfix:after{
 	display: block;
 	content: '';

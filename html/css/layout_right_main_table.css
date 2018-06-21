@@ -14,18 +14,18 @@ body{
 	width: 500px;
 	height: 700px;
 	background-color: black;
-	float: left;
+
 	display: table-cell;
-	vertical-align: top;
+
 }
 
 .right{
 	width: 200px;
 	height: 600px;
 	background-color: purple;
-	margin-left:510px; 
+
 	display: table-cell;
-	vertical-align: top;
+
 }
 
 .footer{
