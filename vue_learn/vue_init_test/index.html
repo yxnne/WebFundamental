@@ -14,9 +14,7 @@
     <div id="app">
     	
 
-    	<p>{{title}}</p>
-    	<!-- v-if判断组件显示与否 -->
-    	<p v-if="showSubTitle">{{subTitle}}</p>
+
     	<br>
     	<!-- @keyup.enter绑定键盘事件“enter” 回调handleAdd方法 -->
 		<input @keyup.enter="handleAdd" type="text" v-model="newtodo"/>
