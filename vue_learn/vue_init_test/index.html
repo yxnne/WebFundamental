@@ -4,9 +4,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>vue_init_test</title>
+    <style>
+    	li.done{
+    		color: red;
+    	}
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+    	
+
+    	<p>{{title}}</p>
+    	<!-- v-if判断组件显示与否 -->
+    	<p v-if="showSubTitle">{{subTitle}}</p>
+    	<br>
+    	<!-- @keyup.enter绑定键盘事件“enter” 回调handleAdd方法 -->
+		<input @keyup.enter="handleAdd" type="text" v-model="newtodo"/>
+		<!-- @click绑定单击鼠标事件 回调handleAdd方法 -->
+    	<button @click="handleAdd">add a new todo things</button>
+
+    	<ul>
+    		<!-- v-for 遍历元素 -->
+    		<!-- :style的值是一个样式对象 -->
+    		<li :style="{'text-decoration':todo.done?'line-through':''}" @click="toggle(index)" v-for="(todo, index) in todos">
+    		{{index+1}} : {{todo.text}}
+    		</li>
+    	</ul>
+    	<!-- 另一种样式的写法 -->
+    	<!-- :class，done类名，后面的是显示与否的值 -->
+    	<ul>
+    		<li :class="{done:todo.done}" @click="toggle(index)" v-for="(todo, index) in todos">
+    		{{index+1}} : {{todo.text}}
+    		</li>
+    	</ul>
+		
+		<!-- remians是一个计算属性 -->
+    	<p>已经完成 ： {{remains}}/{{todos.length}}</p>
+    	<button @click="clearFinish">clear what have finished</button>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>
