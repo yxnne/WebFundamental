@@ -13,14 +13,14 @@
     	<ul>
     		<!-- v-for 遍历元素 -->
     		<!-- :style的值是一个样式对象 -->
-    		<li :style="{'text-decoration':todo.done?'line-through':''}" @click="toggle(index)" v-for="(todo, index) in todos">
+    		<li :key="todo.text" :style="{'text-decoration':todo.done?'line-through':''}" @click="toggle(index)" v-for="(todo, index) in todos">
     		{{index+1}} : {{todo.text}}
     		</li>
     	</ul>
     	<!-- 另一种样式的写法 -->
     	<!-- :class，done类名，后面的是显示与否的值 -->
     	<ul>
-    		<li :class="{done:todo.done}" @click="toggle(index)" v-for="(todo, index) in todos">
+    		<li :key="todo.text" :class="{done:todo.done}" @click="toggle(index)" v-for="(todo, index) in todos">
     		{{index+1}} : {{todo.text}}
     		</li>
     	</ul>
