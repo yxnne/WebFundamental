@@ -1,0 +1,30 @@
+.top-advertise{
+      background-color: #3ba0e8;
+
+}
+.top-advertise .content{
+      display: block;
+      width: 1228px;
+      height: 80px;
+      margin: 0 auto;
+      position: relative;
+}
+.top-advertise .content img{
+      width: 1228px;
+      height: 80px;
+}
+.top-advertise .close-advertise-btn{
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 26px;
+      height: 26px;
+      text-align: center;
+      line-height: 26px;
+      font-size: 20px;
+      color: white;
+      text-decoration: none;
+}
+.top-advertise .close-advertise-btn:hover{
+      background-color: #9EBAB5;
+}
