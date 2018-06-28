@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import ControlPanel from './components_with_flux/ControlPanel';
 import logo from './logo.svg';
 import './App.css';
+
 
 class App extends Component {
   render() {
@@ -11,8 +13,11 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          This Will Test The Flux
         </p>
+
+        <ControlPanel />
+        
       </div>
     );
   }
