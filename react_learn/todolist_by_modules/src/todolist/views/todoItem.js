@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import {toggleTodo, removeTodo} from '../actions.js';
 
-const TodoItem = ({onToggle, onRemove, completed, text}) => {
+const TodoItem = ({onToggleTodo, onRemoveTodo, completed, text}) => {
   const checkedProp = completed ? {checked: true} : {};
   return (
     <li
@@ -9,12 +11,23 @@ const TodoItem = ({onToggle, onRemove, completed, text}) => {
         textDecoration: completed ? 'line-through' : 'none'
       }}
     >
-      <input className="toggle" type="checkbox" {...checkedProp} readOnly onClick={onToggle} />
+      <input className="toggle" type="checkbox" {...checkedProp} readOnly onClick={onToggleTodo} />
       <label className="text">{text}</label>
-      <button className="remove" onClick={onRemove}>×</button>
+      <button className="remove" onClick={onRemoveTodo}>×</button>
     </li>
   )
 }
 
+const mapDispatchToProps = (dispatch, ownProps)=>{
+  const { id } = ownProps;
+  return {
+    onToggleTodo: () => {
+      dispatch(toggleTodo(id));
+    },
+    onRemoveTodo: () => {
+      dispatch(removeTodo(id));
+    }
+  };
+};
 
-export default TodoItem;
+export default connect(null, mapDispatchToProps)(TodoItem);
