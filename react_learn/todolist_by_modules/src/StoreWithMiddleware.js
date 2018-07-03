@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { reducer as todoReducer } from './todolist';
 import { reducer as filterReducer } from './filter';
+import { reducer as practiseReducer } from './practise';
 
 // Perf是帮助发现react渲染中的性能问题，react16以后就不支持!!!!
 // import Perf from 'react-addons-perf';
@@ -31,7 +32,8 @@ const storeEnhancers = compose(
 // 合并reducers，构建store
 const reducers = combineReducers({
   todos: todoReducer, 
-  filter: filterReducer
+  filter: filterReducer,
+  practise: practiseReducer
 }); 
 
 export default createStore(reducers, {}, storeEnhancers);
