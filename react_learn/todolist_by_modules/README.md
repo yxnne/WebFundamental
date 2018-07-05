@@ -99,3 +99,17 @@ const reducers = combineReducers({
 export default createStore(reducers, {}, storeEnhancers);
 
 ```
+
+## 第三方库reselect的作用
+
+mapStateToprops的props可能需要其他处理，比方说某一个props属性是state中多个属性的依赖，这样的话，本来是应该在mapStateToProps中处理好的，可是问题就是，每当state中有属性发生变化的时候，就会产生一个新的state，那么mapStateToProps就会调用一次，那么，需要多个属性的通过某种计算关系映射产生的属性值就会被重新计算。
+这本来是没毛病的，但是，在某些情况下可能产生计算浪费的现象：
+假设要注入到组件内部的属性：
+{
+  x:state.a
+  y:f(state.c, state.b)
+}
+
+假设state.a的值变化了，state.b和state.c没变，那么y的值肯定没有变，但是y的值随着mapStateToProps的调用重新被计算了一遍，这就是浪费了。
+reselect处理的就是这个问题。
+原理就是，判断state.c和state.b的值是否改变，如果没变，直接返回缓存中的值。

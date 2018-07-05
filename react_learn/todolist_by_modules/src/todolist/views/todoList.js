@@ -41,6 +41,7 @@ const TodoList = ({todos, onToggleTodo, onRemoveTodo}) => {
 //   }
 // }
 // 将state映射到组件的props中
+// 通过selector引入缓存值机制，具体作用参见项目readme
 const mapStateToProps = (state) => {
   console.log("state ->", state);
   return {

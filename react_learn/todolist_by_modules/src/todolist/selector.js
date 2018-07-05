@@ -1,11 +1,14 @@
 import { createSelector } from 'reselect'
 import { FilterTypes } from '../constants';
 
+// 从state中映射输入
 const getFilter = state => state.filter;
 const getTodos = state =>  state.todos;
 
+//创建selector
 export const selectVisibleTodos = createSelector(
   [getFilter, getTodos], 
+  //具体计算的规则
   ( filter, todos ) => {
     switch (filter) {
       case FilterTypes.ALL:
