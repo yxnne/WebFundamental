@@ -3,7 +3,9 @@ import {connect} from 'react-redux';
 //import {bindActionCreators} from 'redux';
 import TodoItem from './todoItem.js';
 //import {toggleTodo, removeTodo} from '../actions.js';
-import {FilterTypes} from '../../constants.js';
+//import {FilterTypes} from '../../constants.js';
+import { selectVisibleTodos } from '../selector';
+
 
 // 因为这里是无状态组件，直接使用函数式组件声明方法，在参数中直接采用解构赋值的方式给得到props
 const TodoList = ({todos, onToggleTodo, onRemoveTodo}) => {
@@ -25,24 +27,24 @@ const TodoList = ({todos, onToggleTodo, onRemoveTodo}) => {
 };
 
 
-const selectVisibleTodos = (todos, filter) => {
-  console.log('filter', filter);
-  switch (filter) {
-    case FilterTypes.ALL:
-      return todos;
-    case FilterTypes.COMPLETED:
-      return todos.filter(item => item.completed);
-    case FilterTypes.UNCOMPLETED:
-      return todos.filter(item => !item.completed);
-    default:
-      throw new Error('unsupported filter');
-  }
-}
+// const selectVisibleTodos = (todos, filter) => {
+//   console.log('filter', filter);
+//   switch (filter) {
+//     case FilterTypes.ALL:
+//       return todos;
+//     case FilterTypes.COMPLETED:
+//       return todos.filter(item => item.completed);
+//     case FilterTypes.UNCOMPLETED:
+//       return todos.filter(item => !item.completed);
+//     default:
+//       throw new Error('unsupported filter');
+//   }
+// }
 // 将state映射到组件的props中
 const mapStateToProps = (state) => {
   console.log("state ->", state);
   return {
-    todos: selectVisibleTodos(state.todos, state.filter)
+    todos: selectVisibleTodos(state)
   };
 }
 
