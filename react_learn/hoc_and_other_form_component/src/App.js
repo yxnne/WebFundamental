@@ -4,6 +4,8 @@ import './App.css';
 
 import SimpleHOC from './hoc/simple_hoc'
 import GetRefHOC from './hoc/getRef_hoc'
+import SimpleFuncChildComp from './func_child_comp/simpleComp';
+import TimeBack from './func_child_comp/TimeBack';
 
 const Test1 = ({user, text}) => (
   user?(
@@ -53,6 +55,26 @@ class App extends Component {
         {/* 测试获得子组件ref的高阶组件 */}
         <hr/>
         <WrappingRefReactComp/>
+
+        {/* 测试函数为子组件的高级组件 */}
+
+        <SimpleFuncChildComp>
+          {
+            (fatherGiven)=>(<h1>fahther give you {fatherGiven}</h1>)
+          }
+        </SimpleFuncChildComp>
+
+        <TimeBack startCount={20}>
+          {
+            (num)=>(<div>num is {num}</div>)
+          }
+        </TimeBack>
+
+        <TimeBack startCount={100}>
+          {
+            (num)=>(<h5>Now is {num}</h5>)
+          }
+        </TimeBack>
         
       </div>
     );
