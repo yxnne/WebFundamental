@@ -3,8 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 
 import SimpleHOC from './hoc/simple_hoc'
+import GetRefHOC from './hoc/getRef_hoc'
 
-const Test = ({user, text}) => (
+const Test1 = ({user, text}) => (
   user?(
     <p> SimpleHOC not Work, {user}</p>
   ):(
@@ -12,7 +13,27 @@ const Test = ({user, text}) => (
   )
 );    
 
-const Wrapping = SimpleHOC(Test);
+// 无状态组件测试
+const Test2 = ()=>(
+  <h1>React组件</h1>
+);
+
+class Test3 extends Component {
+  render() {
+    return (
+      <div>
+        <h2>in Hoc</h2>
+      </div>
+    )
+  }
+}
+
+
+// 使用高阶组件
+const Wrapping = SimpleHOC(Test1);
+
+const WrappingRefReactComp = GetRefHOC(Test3); //无状态组件不能有refs
+//const WrappingRefDOMComp = GetRefHOC(Test3);
 
 class App extends Component {
   render() {
@@ -26,8 +47,13 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <hr/>
+        {/* 测试最简单的高阶组件 */}
         <Wrapping user='yxnne' text='test simple hoc'/>
 
+        {/* 测试获得子组件ref的高阶组件 */}
+        <hr/>
+        <WrappingRefReactComp/>
+        
       </div>
     );
   }

@@ -20,7 +20,7 @@ const TodoList = ({todos, onToggleTodo, onRemoveTodo}) => {
           text={item.text}
           completed={item.completed}
         />
-        ))
+      ))
     }
     </ul>
   );
