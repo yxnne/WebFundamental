@@ -1,11 +1,16 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
+import PropTypes from 'prop-types';
 
-export default class TimeBack extends Component {
+class TimeBack extends Component {
   constructor(props){
     super(props);
     this.state = {
       count: this.props.startCount
     };
+  }
+
+  shouldComponentUpdate(nextProp, nextState){
+    return this.state.count !== nextState.count;
   }
 
   componentDidMount(){
@@ -33,3 +38,10 @@ export default class TimeBack extends Component {
     return this.props.children(this.state.count);
   }
 }
+
+TimeBack.PropTypes = {
+  children:PropTypes.func.isRequired,
+  startCount:PropTypes.number.isRequired
+}
+
+export default TimeBack;
