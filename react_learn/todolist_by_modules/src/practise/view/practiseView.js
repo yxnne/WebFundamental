@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { change } from '../actions';
+import { change, asyncTest } from '../actions';
 import { connect } from 'react-redux';
 
 class practiseView extends Component {
@@ -15,18 +15,23 @@ class practiseView extends Component {
         )}
 
         <button onClick={this.props.onChange}>换换</button>
+        <span>{this.props.asyncNum}</span><button onClick = { this.props.onAsyncTest}>异步</button>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) =>({
-  isGood: !state.practise.isGood
+  isGood: !state.practise.isGood, 
+  asyncNum: state.practise.asyncNum
 });
 
 const mapDispatchToProps = (dispatch)=>({
   onChange: ()=>{
     dispatch(change());
+  },
+  onAsyncTest: ()=>{
+    dispatch(asyncTest())
   }
 });
 

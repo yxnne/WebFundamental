@@ -1,4 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk  from "redux-thunk";
 import { reducer as todoReducer } from './todolist';
 import { reducer as filterReducer } from './filter';
 import { reducer as practiseReducer } from './practise';
@@ -12,7 +13,7 @@ import { reducer as practiseReducer } from './practise';
 
 const win = window;
 // 中间件
-const middlewares = [];
+const middlewares = [thunk];
 
 if(process.env.NODE_ENV !== 'production'){
   // 该中间件帮助检查reducer是不是一个纯函数
