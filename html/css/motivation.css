@@ -1,0 +1,85 @@
+.key{
+	width: 80px;
+	height:80px;
+	background-color: yellow;
+	animation: dropdown 8s linear infinite;
+}
+
+@keyframes dropdown {
+    0% { margin-top: 0px;}
+   /** 暂停效果 */
+   10% { margin-top: 0px;}
+   50% { margin-top: -100px;}
+   60% { margin-top: -100px;}
+   90% { margin-top: -200px;}
+  100% { margin-top: -200px;}
+}
+
+.box{
+	position: absolute;
+	right: 0px;
+	width: 80px;
+	height:80px;
+	background-color: yellow;
+	transition-property: right;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+}
+
+.box:hover{
+	right: 200px;
+	background-color: red;
+}
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+  html,body,div {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+    text-align: center;
+  }
+  .container {
+    position: relative;
+    padding-top: 100px;
+    width: 960px;
+    height: 500px;
+    font-size: 36px;
+    text-transform: uppercase;
+    /* background-color: #f0f0f0; */
+  }
+  .list {
+    height: 50px;
+    overflow: hidden;
+  }
+
+  .list > div > div {
+    display: inline-block;
+    height: 50px;
+    color:#fff;
+    margin-bottom: 50px;
+    padding: 4px 12px;
+  }
+  .list div:first-child {
+    animation: dropdown 8s linear infinite;
+  }
+
+  @keyframes dropdown {
+    0% { margin-top: 0px;}
+    10% { margin-top: 0px;}
+    50% { margin-top: -100px;}
+    60% { margin-top: -100px;}
+    90% { margin-top:-200px;}
+    100% { margin-top:-200px;}
+  }
+
+  .list div div {
+    background-color: #42c58a;
+  }
+
+  .list div:first-child div {
+    background-color: #4ec7f3;
+  }
+
+  .list div:last-child div {
+    background-color: #DC143C;
+  }
