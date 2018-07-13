@@ -5,23 +5,29 @@ import TodoItem from './todoItem.js';
 //import {toggleTodo, removeTodo} from '../actions.js';
 //import {FilterTypes} from '../../constants.js';
 import { selectVisibleTodos } from '../selector';
+import TransitionGroup from "react-addons-css-transition-group";
 
+import './todoItem.css';
 
 // 因为这里是无状态组件，直接使用函数式组件声明方法，在参数中直接采用解构赋值的方式给得到props
 const TodoList = ({todos, onToggleTodo, onRemoveTodo}) => {
   console.log('todos->', todos);
   return (
     <ul className="todo-list">
-    {
-      todos.map((item) => (
-        <TodoItem
-          id={item.id}
-          key={item.id}
-          text={item.text}
-          completed={item.completed}
-        />
-      ))
-    }
+      <TransitionGroup transitionName='fade'
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={200}>
+        {
+          todos.map((item) => (
+            <TodoItem
+              id={item.id}
+              key={item.id}
+              text={item.text}
+              completed={item.completed}
+            />
+          ))
+        }
+      </TransitionGroup>
     </ul>
   );
 };
