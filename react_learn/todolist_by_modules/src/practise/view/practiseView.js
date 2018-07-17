@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Motion, spring} from 'react-motion';
 
 import { change, asyncTest } from '../actions';
 import { connect } from 'react-redux';
@@ -16,6 +17,17 @@ class practiseView extends Component {
 
         <button onClick={this.props.onChange}>换换</button>
         <span>{this.props.asyncNum}</span><button onClick = { this.props.onAsyncTest}>异步</button>
+        
+        <br />
+        <Motion defaultStyle={{x:100}} 
+        style={
+          {x:spring(0, {stiffness:100, damping:100})}
+        } >
+          {value=>(<div>{Math.ceil(value.x)}</div>)}
+        
+        </Motion>
+
+
       </div>
     )
   }
