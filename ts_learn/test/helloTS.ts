@@ -1,6 +1,15 @@
+class User{
+    name:string;
+    age:number;
+
+    constructor(name:string, age:number){
+        this.name = name;
+        this.age = age;
+    }
+}
+
 interface SayObj{
     name:string,
-    job:string,
     age:number,
 }
 
@@ -8,10 +17,12 @@ function sayHello(toWhom:SayObj){
     return 'Hello, ' + toWhom.name + '!';
 }
 
-const tsMan = {
+const tsMan:SayObj = {
     name:'ts man',
-    job:'coder',
     age:29
 };
 
-console.log(sayHello(tsMan));
+console.log('using interface', sayHello(tsMan));
+console.log('using class', 
+    sayHello( new User('yxnne', 29) )
+);

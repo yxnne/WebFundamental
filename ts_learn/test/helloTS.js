@@ -1,9 +1,16 @@
+var User = /** @class */ (function () {
+    function User(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    return User;
+}());
 function sayHello(toWhom) {
-    return 'Hello, ' + toWhom.name;
+    return 'Hello, ' + toWhom.name + '!';
 }
 var tsMan = {
     name: 'ts man',
-    job: 'coder',
     age: 29
 };
-console.log(sayHello(tsMan));
+console.log('using interface', sayHello(tsMan));
+console.log('using class', sayHello(new User('yxnne', 29)));
