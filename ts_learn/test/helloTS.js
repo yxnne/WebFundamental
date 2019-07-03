@@ -1,4 +1,9 @@
 function sayHello(toWhom) {
-    return 'Hello' + toWhom;
+    return 'Hello, ' + toWhom.name;
 }
-console.log(sayHello('TYPE SCRIPT'));
+var tsMan = {
+    name: 'ts man',
+    job: 'coder',
+    age: 29
+};
+console.log(sayHello(tsMan));

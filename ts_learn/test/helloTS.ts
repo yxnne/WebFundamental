@@ -1,5 +1,17 @@
-function sayHello(toWhom){
-    return 'Hello, ' + toWhom;
+interface SayObj{
+    name:string,
+    job:string,
+    age:number,
 }
 
-console.log(sayHello('TYPE SCRIPT'));
+function sayHello(toWhom:SayObj){
+    return 'Hello, ' + toWhom.name + '!';
+}
+
+const tsMan = {
+    name:'ts man',
+    job:'coder',
+    age:29
+};
+
+console.log(sayHello(tsMan));
